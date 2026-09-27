@@ -1,0 +1,6 @@
+datasources:cae3ebde76e2ff97b2ff04698a51a09b9884d9f2
+commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
+suitesfrom:no-suites-from-option
+file:87066ac4f8e883a75ebbca682fcfefbf88ecf886
+--suite Smoke.Ingestion Test
+--suite Smoke.Retrieval Test

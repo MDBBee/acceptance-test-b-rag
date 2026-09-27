@@ -1,0 +1,16 @@
+[project]
+name = "b-rag-automation"
+version = "0.1.0"
+description = "Robot Framework test automation project for b-rag app."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "robotframework>=7.5",
+    "robotframework-seleniumlibrary>=6.9.0",
+    "robotframework-pabot>=2.23.0",
+    "robotframework-datadriver>=1.11.0",
+    "openpyxl>=3.1.5",
+    "selenium>=4.16.0",
+    "python-dotenv>=1.2.3",
+    "fpdf2>=2.8.8",
+]

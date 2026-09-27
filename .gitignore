@@ -1,0 +1,17 @@
+# Build / runtime
+results/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+
+# Environment
+.env*
+.env.backend
+.env.frontend
+
+# Text / docs
+*.txt
+*.md
+!README.md
