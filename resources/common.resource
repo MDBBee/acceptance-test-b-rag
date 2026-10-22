@@ -1,20 +1,17 @@
 *** Settings ***
-Library           SeleniumLibrary
+Library           SeleniumLibrary    run_on_failure=Capture Page Screenshot
 Resource          variables.resource
 
 *** Keywords ***
 Open Browser To App
     Set Suite Metadata    Tester    ${TESTER_NAME}
-    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    Call Method    ${options}    add_argument    --no-sandbox
-    Call Method    ${options}    add_argument    --disable-dev-shm-usage
-    Call Method    ${options}    add_argument    --disable-gpu
-    Evaluate    $options.add_argument('--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
     IF    '${HEADLESS}' == 'true'
-        Evaluate    $options.add_argument('--headless=new')
-        Evaluate    $options.add_argument('--window-size=1920,1080')
+        ${browser}=    Set Variable    headlesschrome
+    ELSE
+        ${browser}=    Set Variable    chrome
     END
-    Open Browser    ${BASE_URL}    chrome    options=${options}
+    ${options}=    Set Variable    add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--disable-gpu");add_argument("--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+    Open Browser    ${BASE_URL}    ${browser}    options=${options}
     Set Selenium Timeout    ${WAIT_TIMEOUT}
     IF    '${HEADLESS}' != 'true'
         Maximize Browser Window

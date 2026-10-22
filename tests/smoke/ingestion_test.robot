@@ -1,5 +1,4 @@
 *** Settings ***
-Library     SeleniumLibrary
 Variables   ../../secrets_variables.py
 Resource    ../../resources/variables.resource
 Resource    ../../resources/common.resource
@@ -9,9 +8,6 @@ Resource    ../../pages/ingestion_page.resource
 
 Suite Setup     Open Browser To App
 Suite Teardown  Close All Browsers
-
-*** Variables ***
-${BROWSER}    chrome
 
 *** Test Cases ***
 User Ingests A PDF Document

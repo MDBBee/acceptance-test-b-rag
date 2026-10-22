@@ -1,5 +1,4 @@
 *** Settings ***
-Library     SeleniumLibrary
 Variables   ../../secrets_variables.py
 Resource    ../../resources/variables.resource
 Resource    ../../resources/common.resource
@@ -11,7 +10,6 @@ Suite Setup     Open Browser To App
 Suite Teardown  Close All Browsers
 
 *** Variables ***
-${BROWSER}                    firefox
 ${QUERY_QUESTION}             What is the name of the document I am querrying?
 ${EXPECTED_RESPONSE}          ai-research-paper.pdf
 

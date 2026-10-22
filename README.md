@@ -10,9 +10,9 @@ Robot Framework gives us readable, keyword-driven tests that non-engineers can f
 
 ## What it tests
 
-| Test | Coverage |
-|------|----------|
-| **Ingestion** | Login → create project → upload PDF → wait for vectorization |
+| Test          | Coverage                                                                   |
+| ------------- | -------------------------------------------------------------------------- |
+| **Ingestion** | Login → create project → upload PDF → wait for vectorization               |
 | **Retrieval** | Login → open project → new conversation → query document → verify response |
 
 ## Project structure
@@ -61,13 +61,13 @@ Run from the project root so the suite setup fires correctly:
 
 ```bash
 # All smoke tests
-uv run robot --outputdir results --suite smoke tests
+uv run robot --outputdir results --suite smoke --variable HEADLESS:false tests
 
 # Just ingestion
-uv run robot --outputdir results --include ingestion tests
+uv run robot --outputdir results --include ingestion --variable HEADLESS:false tests
 
 # Just retrieval
-uv run robot --outputdir results --include retrieval tests
+uv run robot --outputdir results --include retrieval --variable HEADLESS:false tests
 ```
 
 Results land in `results/` (gitignored) — open `log.html` for the full breakdown.
