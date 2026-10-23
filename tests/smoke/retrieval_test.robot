@@ -10,8 +10,9 @@ Suite Setup     Open Browser To App
 Suite Teardown  Close All Browsers
 
 *** Variables ***
-${QUERY_QUESTION}             What is the name of the document I am querrying?
-${EXPECTED_RESPONSE}          ai-research-paper.pdf
+${QUERY_QUESTION}             What is the name of the document I am querying?
+${EXPECTED_RESPONSE}          ai-research-paper
+${PROJECT_NAME_FOR_RETRIEVAL}    Test for Retrieval
 
 *** Test Cases ***
 User Queries A Document And Gets Correct Response
@@ -20,7 +21,7 @@ User Queries A Document And Gets Correct Response
     [Teardown]    Teardown Retrieval Test
     Login With Test User
     Click View Projects
-    Click Project Card
+    Click Project Card By Name    ${PROJECT_NAME_FOR_RETRIEVAL}
     Query Document    ${QUERY_QUESTION}    ${EXPECTED_RESPONSE}
 
 *** Keywords ***

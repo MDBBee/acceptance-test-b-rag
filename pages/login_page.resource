@@ -51,12 +51,15 @@ Wait For Auth Overlay To Close
     Wait Until Element Is Not Visible    ${AUTH_BACKDROP}    ${WAIT_TIMEOUT}
 
 Login With Test User
-    Click Sign In Button
-    Wait Until Element Is Visible    ${MODAL_HEADING}    10s
-    Click Test Button
-    Enter Verification Code    ${TEST_CODE}
-    Click Verify Code Button
-    Wait For Auth Overlay To Close
+    ${is_signed_in}=    Run Keyword And Return Status    Page Should Contain Element    ${BTN_USER_NAME}    5s
+    IF    not ${is_signed_in}
+        Click Sign In Button
+        Wait Until Element Is Visible    ${MODAL_HEADING}    10s
+        Click Test Button
+        Enter Verification Code    ${TEST_CODE}
+        Click Verify Code Button
+        Wait For Auth Overlay To Close
+    END
 
 Logout
     Scroll Element Into View    ${BTN_USER_NAME}

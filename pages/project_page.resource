@@ -36,6 +36,11 @@ Click View Projects
 Click Project Card
     Wait And Click    ${BTN_PROJECT_CARD}
 
+Click Project Card By Name
+    [Arguments]    ${project_name}
+    ${card_locator}=    Set Variable    //div[.//h3[contains(., '${project_name}')]]
+    Wait And Click    ${card_locator}
+
 Navigate To Projects List
     Go To    ${URL_PROJECTS}
     Wait Until Page Contains    All Projects    ${WAIT_TIMEOUT}
